@@ -17,7 +17,7 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
-        dd($request->all());
+        
         $request->validate([
             'name'  => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -29,7 +29,7 @@ class AuthController extends Controller
             'password.mixedCase' => 'Parolda katta va kichik harf bo‘lishi kerak.',
             'password.numbers'   => 'Parolda raqam bo‘lishi kerak.',
         ]);
-
+        
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
